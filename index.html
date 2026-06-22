@@ -1,39 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Poke Wiki</title>
 </head>
-<body class="img">
+<body>
     <header class="header">
-        <img src="Assests/Pokeball-PNG-Photo-Image.png" class="logo"> </a>
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <nav class="navbar">
+        <a href="#" class="brand" aria-label="Poke Wiki home">  
+            <img src="Assests/Pokeball-PNG-Photo-Image.png" class="logo" alt="">
+            <span>Poke Wiki</span>
+        </a>
+        <button class="menu-toggle" id="menu-icon" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <i class="bx bx-menu" aria-hidden="true"></i>
+        </button>
+        <nav class="navbar" aria-label="Primary navigation">
             <a href="#">Home</a>
             <a href="#">Town Map</a>
             <a href="#">About Us</a>
         </nav>
     </header>
-    <div class="nav-bg"></div>
-    <div class="alignment">
-        <h1 class="text">Pokémon</h1>
 
-        <div class="i">
-            <input id="pokesearch" class="entery" type="text" required >
-            <span>Poké Name</span>
-            <img class="image" src="Assests/Pokeball-black.png" alt="O" height="20px" width="33px"></i>
-        </div>
+    <main class="hero">
+        <section class="hero-content" aria-labelledby="hero-title">
+            <div class="hero-dex">
+                <form class="search-panel" id="searchForm" autocomplete="off">
+                    <h1 id="hero-title" class="card-title">Pokemon</h1>
+                    <label class="search-label" for="pokesearch">Poke Name</label>
+                    <div class="search-row">
+                        <div class="search-field">
+                            <i class="bx bx-radio-circle-marked" aria-hidden="true"></i>
+                            <input
+                                id="pokesearch"
+                                class="entry"
+                                type="search"
+                                placeholder=""
+                                aria-autocomplete="list"
+                                aria-controls="suggestions"
+                                aria-expanded="false"
+                                aria-activedescendant="">
+                            <div id="suggestions" class="suggestions" role="listbox"></div>
+                        </div>
+                        <button class="action-button primary" id="searchButton" type="submit">
+                            <span>Submit</span>
+                        </button>
+                        <button class="action-button secondary" id="randomButton" type="button">
+                            <i class="bx bx-shuffle" aria-hidden="true"></i>
+                            <span>Random</span>
+                        </button>
+                    </div>
+                    <p class="helper-text" id="statusMessage" aria-live="polite"></p>
+                </form>
 
-        <div id="pokemonContainer" class="pokemon-container"></div>
-
-        <div class="button">
-            <button class="submit" type="button" onclick="getPokemon()">Submit</button>
-        </div>
-    </div>
+                <div id="pokemonContainer" class="pokemon-container" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
